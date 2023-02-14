@@ -37,3 +37,14 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 - CSS 3
 - NodeJS 18.13.0
 - Postgres v15.0
+
+
+# Regras de uso do git
+
+### Regras de commit
+- Deve ser feito um commit ao fim de cada passo do trabalho.
+- Cada commit deve possuir uma mensagem clara, que especifique o que foi realizado.
+
+### Regras de uso de branches
+- Quando o desenvolvedor necessitar fazer um commit antes de terminar um passo, ele deve criar uma branch e fazer todos os commits necessários nela.
+- Ao terminar um passo, deve ser realizado um merge entre a branch main e outras branches, se essas existirem.
