@@ -3,7 +3,7 @@ Trabalho final da matéria de engenharia de software (GCC 188)
 
 # Membros
 <summary>  Daniel Messias Santos - 202110168 </summary>
-<summary>  Luiz Filipe Bartelega Penha - </summary>
+<summary>  Luiz Filipe Bartelega Penha - 202111082 </summary>
 <summary>  Thiago Pereira Freire - 202110167 </summary>
 
 # Descrição
@@ -31,7 +31,7 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
         - MVC
 
 
-# Tecnologias
+## Tecnologias
 
 - HTML 5
 - CSS 3
@@ -39,12 +39,19 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 - Postgres v15.0
 
 
-# Regras de uso do git
+## Regras de uso do git
 
 ### Regras de commit
 - Deve ser feito um commit ao fim de cada passo do trabalho.
 - Cada commit deve possuir uma mensagem clara, que especifique o que foi realizado.
 
-### Regras de uso de branches
+## Regras de uso de branches
 - Quando o desenvolvedor necessitar fazer um commit antes de terminar um passo, ele deve criar uma branch e fazer todos os commits necessários nela.
 - Ao terminar um passo, deve ser realizado um merge entre a branch main e outras branches, se essas existirem.
+
+## Boas práticas de codificação que devem ser utilizadas
+- As variáveis devem seguir o estilo de notação camelCase.
+- Os comentários devem ser escritos com o objetivo de explicar um determinado bloco de código, eles devem ser escritos imediatamente antes do código a ser explicado.
+- Deve-se utilizar espaçamento em torno dos operadores lógicos e operadores relacionais.
+- A indentação deve ser feita utilizando o espaçamento de um tab.
+- Uma linha de código não deve ter mais de 100 caracteres.
