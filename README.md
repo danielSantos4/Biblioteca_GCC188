@@ -12,7 +12,7 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 
 ### Funcionalidades
     - Os usuários devem ser capazes de se cadastrarem por conta própria no sistema.
-    - Os administradores devem ser capazes de visualizar, excluir e alterar uma reserva de um livro por um usuário.
+    - Os administradores devem ser capazes de cadastrar, visualizar, excluir e alterar uma reserva de um livro por um usuário.
     - Os administradores devem ser capazes de cadastrar, alterar e visualizar livros cadastrados.
     - Os usuários devem ser capazes de visualizar os livros cadastrados.
     - Os usuários devem ser capazes de cadastrar reservas.
