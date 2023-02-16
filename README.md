@@ -26,6 +26,7 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 
     - Saci
       - Documentos de Requisitos
+      - Padroes adotados
       - Codigos
         - Paginas
         - MVC
