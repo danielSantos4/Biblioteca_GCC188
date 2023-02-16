@@ -7,12 +7,12 @@ Trabalho final da matéria de engenharia de software (GCC 188)
 <summary>  Thiago Pereira Freire - 202110167 </summary>
 
 # Descrição
-Na cidade de `Campo Azul, Paraná`a biblioteca `Alexandria` usa um sistema de reserva de livros em que os próprios usuários fazem a reserva e pegam o livro nas prateleiras, mas isso está gerando grandes problemas pelo fato de existirem diversos usuários que não registram seus emprestimos e os dados estarem salvos em papel, sendo necessário uma constante atenção do administrador da biblioteca a respeito do estoque. 
-Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elaborar um sistema que automatiza a coleta e a gerencia desses dados, facilitando a vida do administrador da biblioteca.
+Na cidade de `Campo Azul, Paraná`a biblioteca `Alexandria` usa um sistema de reserva de livros em que os próprios usuários podem fazer a reserva e pegar o livro nas prateleiras, mas isso está gerando grandes problemas devido ao fato de existirem diversos usuários que não registram seus empréstimos e  ao fato dos dados estarem salvos em papel, sendo necessário uma constante atenção do administrador da biblioteca a respeito do estoque. 
+Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elaborar um sistema para automatizar a coleta e a gerência desses dados, facilitando a vida do administrador da biblioteca.
 
-### Funcionaidades
-    - Os usuários devem ser capazer de se cadastrarem no sistema.
-    - Os administradores devem ser capazes de realizar, visualizar, excluir e alterar uma reserva de um livro por um usuário
+### Funcionalidades
+    - Os usuários devem ser capazes de se cadastrarem por conta própria no sistema.
+    - Os administradores devem ser capazes de visualizar, excluir e alterar uma reserva de um livro por um usuário.
     - Os administradores devem ser capazes de cadastrar, alterar e visualizar livros cadastrados.
     - Os usuários devem ser capazes de visualizar os livros cadastrados.
     - Os usuários devem ser capazes de cadastrar reservas.
@@ -26,9 +26,9 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 
     - Saci
       - Documentos de Requisitos
-      - Padroes adotados
-      - Codigos
-        - Paginas
+      - Padrẽes adotados
+      - Códigos
+        - Páginas
         - MVC
 
 
@@ -52,7 +52,7 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 
 ## Boas práticas de codificação que devem ser utilizadas
 - As variáveis devem seguir o estilo de notação camelCase.
-- Os comentários devem ser escritos com o objetivo de explicar um determinado bloco de código, eles devem ser escritos imediatamente antes do código a ser explicado.
+- Os comentários devem ser escritos com o objetivo de explicar um determinado bloco de código, devendo ser escritos imediatamente antes do código a ser explicado.
 - Deve-se utilizar espaçamento em torno dos operadores lógicos e operadores relacionais.
 - A indentação deve ser feita utilizando o espaçamento de um tab.
-- Uma linha de código não deve ter mais de 100 caracteres.
+- Uma linha de código não deve possuir mais de 100 caracteres.
