@@ -11,7 +11,7 @@ async function get_user(req, res)
     const email = req.params.email
     if(!email)
     {
-        res.send("CPF Inválido!")
+        res.send("Email Inválido!")
     }
     else
     {
@@ -44,7 +44,7 @@ async function del_user(req, res)
 
     if(!email)
     {
-        console.log("CPF inválido!")
+        console.log("Email inválido!")
     }
     else
     {
