@@ -5,62 +5,67 @@ async function get_all_users(req, res)
     res.send(await services.get_all_users())
 }
 
+
 async function get_user(req, res)
 {
-    const cpf = req.params.cpf
-    if(!cpf)
+    const email = req.params.email
+    if(!email)
     {
         res.send("CPF Inválido!")
     }
     else
     {
-        res.send(await services.get_user(cpf))
+        res.send(await services.get_user(email))
     }
 }
 
 async function create_user(req, res)
 {
-    const cpf = req.body.cpf
-    const nome = req.body.name
-    const salario = parseFloat(req.body.salary)
+    const email = req.body.email
+    const nome = req.body.nome
+    const dataNasc = req.body.dataNascimento
+    const senha = req.body.senha
+    const senhaConfirmacao = req.body.senhaConfirmacao
+    console.log(email)
 
-    if(!cpf|| !nome || !salario)
+    if(!email|| !nome || !dataNasc || !senha || (senha != senhaConfirmacao))
     {
         res.send("Dados Inválidos!")
     }
     else
     {
-        res.send(await services.create_user(cpf, nome, salario))
+        res.send(await services.create_user(nome, senha, dataNasc, email))
     }
 }
 
 async function del_user(req, res)
 {
-    const cpf = req.params.cpf
+    const email = req.params.email
 
-    if(!cpf)
+    if(!email)
     {
         console.log("CPF inválido!")
     }
     else
     {
-        res.send(await services.del_user(cpf))
+        res.send(await services.del_user(email))
     }
 }
 
 async function upt_user(req, res)
 {
-    const cpf = req.params.cpf
-    const nome = req.body.name
-    const salario = parseFloat(req.body.salary)
+    const email = req.body.email
+    const nome = req.body.nome
+    const dataNasc = req.body.dataNascimento
+    const senha = req.body.senha
 
-    if(!cpf || !nome || !salario)
+    if(!email || !nome)
     {
         console.log("Dados inválidos")
     }
     else
     {
-        res.send(await services.upt_user(cpf, nome, salario))
+        res.send(await services.upt_user(nome, senha, dataNasc, email))
     }
 }
 

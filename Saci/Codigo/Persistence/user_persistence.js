@@ -1,11 +1,11 @@
 import bd from "./BD.js"
-async function get_all_clients()
+async function get_all_users()
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('SELECT * FROM "Cliente"')
-        console.log("Get all clients !!! ")
+        const consulta = await conn.query('SELECT * FROM "usuario"')
+        console.log("Get all users !!! ")
         return consulta.rows
     }
     catch(err)
@@ -18,12 +18,12 @@ async function get_all_clients()
     }
 }
 
-async function get_client(cpf)
+async function get_user(email)
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('SELECT * FROM "Cliente" WHERE cpf=$1', [cpf])
+        const consulta = await conn.query('SELECT * FROM "usuario" WHERE email=$1', [email])
         console.log(consulta.rows)
         return consulta.rows
     }
@@ -37,12 +37,12 @@ async function get_client(cpf)
     }
 }
 
-async function create_client(cpf, nome, salario)
+async function create_user(nome, senha, dataNasc, email)
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('INSERT INTO "Cliente" VALUES ($1, $2, $3) RETURNING *', [cpf, nome, salario])
+        const consulta = await conn.query('INSERT INTO usuario VALUES (DEFAULT, $1, $2, $3, $4, false) RETURNING *', [nome, dataNasc, email, senha])
         console.log(consulta.rows)
         return consulta.rows
     }
@@ -56,12 +56,12 @@ async function create_client(cpf, nome, salario)
     }
 }
 
-async function del_client(cpf)
+async function del_user(email)
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('DELETE FROM "Cliente" WHERE cpf=$1 RETURNING *', [cpf])
+        const consulta = await conn.query('DELETE FROM usuario WHERE email="carlosteles"', [email])
         console.log('DELETED: ' + consulta.rows)
         return consulta.rows
     }
@@ -75,12 +75,12 @@ async function del_client(cpf)
     }
 }
 
-async function upt_client(cpf, nome, salario)
+async function upt_user(nome, senha, dataNasc, email)
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta =   await conn.query('UPDATE "Cliente" SET nome = $1, salario = $2  WHERE cpf = $3 RETURNING *', [nome, salario, cpf])
+        const consulta =   await conn.query('UPDATE "usuario" SET nome = $1, senha = $2, data_nascimento = $3  WHERE email = $4 RETURNING *', [nome, senha, dataNasc, email])
         console.log(consulta.rows)
         return consulta.rows
     }
@@ -94,4 +94,4 @@ async function upt_client(cpf, nome, salario)
     }
 }
 
-export default {get_all_clients, get_client, del_client, upt_client, create_client}
+export default {get_all_users, get_user, del_user, upt_user, create_user}
