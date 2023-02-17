@@ -14,7 +14,7 @@ async function get_user(email)
 async function create_user(nome, senha, dataNasc, email)
 {
     const usere = await get_user(email)
-    console.log(usere[0] + JSON.stringify(usere))
+    
 
     if(usere[0] == undefined)
     {
@@ -29,6 +29,7 @@ async function create_user(nome, senha, dataNasc, email)
 async function del_user(email)
 {
     const usere = await get_user(email)
+    
 
     if(usere[0] != undefined)
     {
@@ -43,8 +44,6 @@ async function del_user(email)
 async function upt_user(nome, senha, dataNasc, email)
 {
     const usere = await get_user(email)
-    console.log(usere.JSON)
-    console.log("op")
 
     if(usere[0] != undefined)
     {

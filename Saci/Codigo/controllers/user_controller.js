@@ -40,7 +40,7 @@ async function create_user(req, res)
 
 async function del_user(req, res)
 {
-    const email = req.params.email
+    const email = req.body.email
 
     if(!email)
     {

@@ -61,7 +61,8 @@ async function del_user(email)
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('DELETE FROM usuario WHERE email="carlosteles"', [email])
+        console.log("aqui")
+        const consulta = await conn.query("DELETE FROM usuario WHERE email=$1 RETURNING *", [email])
         console.log('DELETED: ' + consulta.rows)
         return consulta.rows
     }
