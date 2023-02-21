@@ -2,7 +2,9 @@ import services from "../Services/user_service.js"
 
 async function get_all_users(req, res)
 {
-    res.send(await services.get_all_users())
+    //res.send(await services.get_all_users())
+    var row = await services.get_all_users()
+    res.render('TelaCRUDUsuarioAdministrador', {table: row});
 }
 
 
@@ -40,8 +42,11 @@ async function create_user(req, res)
 
 async function del_user(req, res)
 {
+    /*
     const email = req.body.email
-
+    const email = req.query.email
+    */
+   const email = req.params.email
     if(!email)
     {
         console.log("Email inválido!")

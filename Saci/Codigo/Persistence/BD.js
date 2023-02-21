@@ -9,7 +9,7 @@ function conectar() {
         host: 'localhost',
         database: 'postgres',
         user: 'postgres',
-        password: 'Barometro10#',
+        password: '123456',
         port: '5432'
     })
     global.connection = pool;
