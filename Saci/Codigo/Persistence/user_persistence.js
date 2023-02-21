@@ -4,8 +4,10 @@ async function get_all_users()
     const conn = await bd.conectar()
 
     try{
-        const consulta = await conn.query('SELECT * FROM "usuario"')
+        //const consulta = await conn.query('SELECT * FROM "usuario"')
+        const consulta = await conn.query("SELECT nome, email, to_char(data_nascimento::date, 'dd/mm/yyyy') as data_nascimento FROM usuario")
         console.log("Get all users !!! ")
+        console.log(consulta)
         return consulta.rows
     }
     catch(err)
