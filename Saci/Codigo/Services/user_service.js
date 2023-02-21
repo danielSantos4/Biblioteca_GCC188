@@ -1,4 +1,5 @@
 import pg from "pg"
+import user_persistence from "../Persistence/user_persistence.js"
 import persistence from "../Persistence/user_persistence.js"
 
 async function get_all_users()
@@ -56,4 +57,17 @@ async function upt_user(nome, senha, dataNasc, email)
     
 }
 
-export default {get_all_users, get_user, del_user, upt_user, create_user}
+async function login_user(email, senha) {
+    const user = await user_persistence.login_user(email,senha)
+    if(user[0] != undefined){
+        const ehUmAdm = user[0].admUser
+        if(ehUmAdm){
+            return "adm"
+        }else{
+            return "naoEhAdm"
+        }
+    }else{
+        return false
+    }
+}
+export default {get_all_users, get_user, del_user, upt_user, create_user, login_user}

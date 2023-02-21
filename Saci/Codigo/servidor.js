@@ -21,3 +21,4 @@ function servico(){
     console.log("Servidor rodando ... \n")
 }
 
+console.log(userRouter.stack)

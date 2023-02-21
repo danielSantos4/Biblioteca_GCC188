@@ -4,7 +4,8 @@ async function get_all_users(req, res)
 {
     //res.send(await services.get_all_users())
     var row = await services.get_all_users()
-    res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem:''});
+    //res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem:''});
+    res.redirect("/user/login")
 }
 
 
@@ -95,5 +96,23 @@ async function upt_user(req, res)
         }
     }
 }
+async function login_user(req, res) {
+    res.render('TelaLogin')
+    const email = req.body.email
+    const senha = req.body.senha
 
-export default {get_all_users, get_user, del_user, upt_user, create_user}
+    if(!email || !senha){
+
+    }else{
+        const tipoDaConta = await services.login_user(email, senha)
+        if(tipoDaConta != false){
+            if(tipoDaConta == "adm"){
+                res.redirect("/user")
+            }else if(tipoDaConta == "naoEhAdm"){
+                console.log("nao implementado")
+            }
+        }
+
+    }
+}
+export default {get_all_users, get_user, del_user, upt_user, create_user, login_user}

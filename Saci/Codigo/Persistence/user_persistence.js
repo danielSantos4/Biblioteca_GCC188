@@ -96,5 +96,19 @@ async function upt_user(nome, senha, dataNasc, email)
         conn.release()
     }
 }
-
-export default {get_all_users, get_user, del_user, upt_user, create_user}
+async function login_user(email, senha) {
+    try{
+        const consulta = await conn.query('SELECT * FROM usuario WHERE email=$1 AND senha=$2', [email, senha])
+        console.log(consulta.rows)
+        return consulta.rows
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+    finally
+    {
+        conn.release()
+    }
+}
+export default {get_all_users, get_user, del_user, upt_user, create_user, login_user}
