@@ -25,16 +25,15 @@
         <div>
             <h2>Formulário de cadastro de usuário</h2>
 
-
             <form action="http://localhost:3000/user" method="post">
                 <label for="nome">Nome de usuário:</label><br>
                 <input type="text" id="nome" name="nome" required><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br>
         
                 <label for="dataNascimento">Data de nascimento:</label><br>
                 <input type="text" id="dataNascimento" name="dataNascimento" required><br>
-        
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email" required><br>
         
                 <label for="senha">Senha:</label><br>
                 <input type="password" id="senha" name="senha" required><br>
@@ -64,7 +63,7 @@
                           <td><%= row.email %></td>
                           <td><%= row.data_nascimento %></td>
                           <td>
-                              <a href="http://localhost:3000/user/delete/<%=row.email%>">Delete</a>
+                              <a href="http://localhost:3000/user/delete/<%=row.email%>">Deletar usuário</a>
                           </td>
                         </tr>
                     <% }); %>
@@ -86,7 +85,7 @@
                 <input type="text" id="dataNascimento" name="dataNascimento" required><br>
         
                 <label for="senha">Senha:</label><br>
-                <input type="password" id="senha" name="senha" required><br>
+                <input type="password" id="senha" name="senha" required><br><br>
         
                 <input type="submit" value="Alterar cadastro">
             </form>
