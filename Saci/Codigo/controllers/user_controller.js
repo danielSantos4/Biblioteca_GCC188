@@ -53,7 +53,8 @@ async function del_user(req, res)
     }
     else
     {
-        res.send(await services.del_user(email))
+        services.del_user(email)
+        res.redirect("/user")
     }
 }
 
