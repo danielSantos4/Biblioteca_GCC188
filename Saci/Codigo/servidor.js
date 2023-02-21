@@ -2,7 +2,6 @@ import express from "express"
 import path from "path"
 import { fileURLToPath } from 'url';
 import userRouter from "./Routes/user_routes.js"
-
 const servidor = express()
 
 servidor.use( express.json() )

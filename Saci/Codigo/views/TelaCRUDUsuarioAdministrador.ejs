@@ -4,33 +4,92 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>CRUD Usuário</title>
     </head>
+    <!--css externo nao esta funcionando-->
+    <style type="text/css">
+        .mensagemAtencao {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
     <body>
+        <div class="mensagemAtencao">
+            <% if(mensagem != ''){%>
+                <div >
+                    <strong>Atenção!</strong> <%= mensagem %>
+                </div>
+            <% } %>
+        </div>
+        <div>
+            <h2>Formulário de cadastro de usuário</h2>
+
+
+            <form action="http://localhost:3000/user" method="post">
+                <label for="nome">Nome de usuário:</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+        
+                <label for="dataNascimento">Data de nascimento:</label><br>
+                <input type="text" id="dataNascimento" name="dataNascimento" required><br>
+        
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br>
+        
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" required><br>
+                
+                <label for="senhaConfirmacao">Confirmar senha:</label><br>
+                <input type="password" id="senhaConfirmacao" name="senhaConfirmacao" required><br><br>
+        
+                <input type="submit" value="Realizar cadastro">
+            </form>
+        </div>
+
         <div class="">
             <h2>Tabela de todos os usuários</h2>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Data de nascimento</th>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de nascimento</th>
+                        <th>Email</th>
                         </tr>
                     </thead>
                     
-                    <tbody>
-                        <% table.forEach((row) => { %>
-                            <tr>
-                              <td><%= row.nome %></td>
-                              <td><%= row.email %></td>
-                              <td><%= row.data_nascimento %></td>
-                              <td>
-                                  <a href="http://localhost:3000/user/delete/<%=row.email%>">Delete</a>
-                              </td>
-                            </tr>
-                        <% }); %>
-                    </tbody>
-                </table>
-                </div>
+                <tbody>
+                    <% table.forEach((row) => { %>
+                        <tr>
+                          <td><%= row.nome %></td>
+                          <td><%= row.email %></td>
+                          <td><%= row.data_nascimento %></td>
+                          <td>
+                              <a href="http://localhost:3000/user/delete/<%=row.email%>">Delete</a>
+                          </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Formulário de alteração de cadastro</h2>
+
+            <form action="http://localhost:3000/user/update" method="post">                
+                <label for="email">Digite o email da conta que terá os dados alterados:</label><br>
+                <input type="text" id="email" name="email" required><br>
+
+                <label for="nome">Nome de usuário:</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+        
+                <label for="dataNascimento">Data de nascimento:</label><br>
+                <input type="text" id="dataNascimento" name="dataNascimento" required><br>
+        
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" required><br>
+        
+                <input type="submit" value="Alterar cadastro">
+            </form>
+        </div>
     </body>
 </html>

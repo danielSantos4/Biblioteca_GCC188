@@ -10,6 +10,7 @@ router.post("/", user_controller.create_user)
 //router.delete("/", user_controller.del_user)
 //router.delete("/:email", user_controller.del_user)
 router.get("/delete/:email", user_controller.del_user)
-router.put("/", user_controller.upt_user)
+//router.put("/", user_controller.upt_user)
+router.post("/update/", user_controller.upt_user)
 
 export default router

@@ -4,7 +4,7 @@ async function get_all_users(req, res)
 {
     //res.send(await services.get_all_users())
     var row = await services.get_all_users()
-    res.render('TelaCRUDUsuarioAdministrador', {table: row});
+    res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem:''});
 }
 
 
@@ -28,15 +28,25 @@ async function create_user(req, res)
     const dataNasc = req.body.dataNascimento
     const senha = req.body.senha
     const senhaConfirmacao = req.body.senhaConfirmacao
-    console.log(email)
 
     if(!email|| !nome || !dataNasc || !senha || (senha != senhaConfirmacao))
     {
-        res.send("Dados Inválidos!")
+        var row = await services.get_all_users()
+        res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Dados inválidos'})
     }
     else
     {
-        res.send(await services.create_user(nome, senha, dataNasc, email))
+        const contaExistente = await services.create_user(nome, senha, dataNasc, email)
+        var row = await services.get_all_users()
+        console.log("log;", contaExistente)
+        if(contaExistente != false){
+            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Cadastro feito com sucesso'})
+        }else{
+            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Já existe uma conta com esse email'})
+            //res.send("Conta conta de email " + email + " já existe")
+        }
+        //console.log(services.create_user(nome, senha, dataNasc, email))
+        //res.redirect("/user")
     }
 }
 
@@ -53,8 +63,11 @@ async function del_user(req, res)
     }
     else
     {
+        //res.redirect("/user")
+        
         services.del_user(email)
-        res.redirect("/user")
+        var row = await services.get_all_users()
+        res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Usuário de email ' + email + ' foi excluido'})
     }
 }
 
@@ -64,14 +77,22 @@ async function upt_user(req, res)
     const nome = req.body.nome
     const dataNasc = req.body.dataNascimento
     const senha = req.body.senha
-
+    console.log(email, nome, dataNasc, senha)
     if(!email || !nome)
     {
-        console.log("Dados inválidos")
+        var row = await services.get_all_users()
+        res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Dados inválidos'})
     }
     else
     {
-        res.send(await services.upt_user(nome, senha, dataNasc, email))
+        const contaFoiAtualizada = await services.upt_user(nome, senha, dataNasc, email)
+        var row = await services.get_all_users()
+        if(contaFoiAtualizada != false){
+            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Conta de email ' + email + ' foi atualizada'})
+        }else{
+            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Não foi possível atualizar. Não existe conta com esse email'})
+
+        }
     }
 }
 

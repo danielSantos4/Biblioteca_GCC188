@@ -15,14 +15,14 @@ async function create_user(nome, senha, dataNasc, email)
 {
     const usere = await get_user(email)
     
-
     if(usere[0] == undefined)
     {
         return await persistence.create_user(nome, senha, dataNasc, email)
     }
     else
     {
-        return "email já cadastrado!"
+
+        return false
     }
 }
 
@@ -51,7 +51,7 @@ async function upt_user(nome, senha, dataNasc, email)
     }
     else
     {
-        return "usuario não cadastrado!"
+        return false
     }
     
 }
