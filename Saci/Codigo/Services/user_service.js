@@ -60,8 +60,9 @@ async function upt_user(nome, senha, dataNasc, email)
 async function login_user(email, senha) {
     const user = await user_persistence.login_user(email,senha)
     if(user[0] != undefined){
-        const ehUmAdm = user[0].admUser
-        if(ehUmAdm){
+        const ehUmAdm = user[0].adm_user
+        console.log("aqui:" + ehUmAdm)
+       if(ehUmAdm == true){
             return "adm"
         }else{
             return "naoEhAdm"

@@ -97,7 +97,10 @@ async function upt_user(nome, senha, dataNasc, email)
     }
 }
 async function login_user(email, senha) {
+    
+    const conn = await bd.conectar()
     try{
+        console.log(email, senha)
         const consulta = await conn.query('SELECT * FROM usuario WHERE email=$1 AND senha=$2', [email, senha])
         console.log(consulta.rows)
         return consulta.rows

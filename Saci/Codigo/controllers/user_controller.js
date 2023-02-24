@@ -4,8 +4,8 @@ async function get_all_users(req, res)
 {
     //res.send(await services.get_all_users())
     var row = await services.get_all_users()
-    //res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem:''});
-    res.redirect("/user/login")
+    res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem:''});
+    //res.redirect("/user/login")
 }
 
 
@@ -97,7 +97,7 @@ async function upt_user(req, res)
     }
 }
 async function login_user(req, res) {
-    res.render('TelaLogin')
+
     const email = req.body.email
     const senha = req.body.senha
 
@@ -105,6 +105,7 @@ async function login_user(req, res) {
 
     }else{
         const tipoDaConta = await services.login_user(email, senha)
+        console.log(tipoDaConta)
         if(tipoDaConta != false){
             if(tipoDaConta == "adm"){
                 res.redirect("/user")
