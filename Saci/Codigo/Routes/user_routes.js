@@ -13,5 +13,6 @@ router.get("/delete/:email", user_controller.del_user)
 //router.put("/", user_controller.upt_user)
 router.post("/update/", user_controller.upt_user)
 router.post("/login/", user_controller.login_user)
+router.post("/cadastrar", user_controller.telaCadastrar)
 
 export default router

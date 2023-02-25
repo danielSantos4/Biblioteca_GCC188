@@ -103,7 +103,7 @@ async function login_user(req, res) {
     const senha = req.body.senha
 
     if(!email || !senha){
-
+        res.render("TelaLogin")
     }else{
         const tipoDaConta = await services.login_user(email, senha)
         console.log(tipoDaConta)
@@ -117,4 +117,7 @@ async function login_user(req, res) {
 
     }
 }
-export default {get_all_users, get_user, del_user, upt_user, create_user, login_user}
+async function telaCadastrar(req,res) {
+    res.render("TelaCadastro")
+}
+export default {get_all_users, get_user, del_user, upt_user, create_user, login_user, telaCadastrar}

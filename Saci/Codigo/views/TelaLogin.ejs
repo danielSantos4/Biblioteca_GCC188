@@ -9,7 +9,6 @@
 <body>
     <div>
         <h1>Login</h1>
-        <!--Tentando-->
         <form action="http://localhost:3000/user/login" method="post">
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
@@ -18,12 +17,11 @@
             <input type="text" id="senha" name="senha"><br><br>
             
             <input type="submit" value="Realizar login">
-            <h1> tentando </h1>
     
         </form>
-        <a href="TelaCadastroUsuarioAdministrador.html">
-            <button> Cadastre-se </button>
-        </a>
+        <form action="http://localhost:3000/user/cadastrar" method="post">
+            <input type="submit" value="Cadastre-se">
+        </form>
     </div>
      
 </body>
