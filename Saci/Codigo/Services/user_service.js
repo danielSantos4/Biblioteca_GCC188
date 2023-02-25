@@ -22,7 +22,6 @@ async function create_user(nome, senha, dataNasc, email)
     }
     else
     {
-
         return false
     }
 }

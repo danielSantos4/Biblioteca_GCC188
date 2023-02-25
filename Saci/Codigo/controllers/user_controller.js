@@ -40,6 +40,7 @@ async function create_user(req, res)
         const contaExistente = await services.create_user(nome, senha, dataNasc, email)
         var row = await services.get_all_users()
         console.log("log;", contaExistente)
+        
         if(contaExistente != false){
             res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Cadastro feito com sucesso'})
         }else{
