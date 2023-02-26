@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>CRUD Usuário</title>
+        <title>Reservas</title>
     </head>
-
+    <!--css externo nao esta funcionando-->
     <style type="text/css">
         .mensagemAtencao {
             color: red;
@@ -33,42 +33,34 @@
         </nav>
 
         <div class="">
-            <h2>Tabela de todos os livros</h2>
+            <h2> Tabela de todas as reservas </h2>
             <table border="1">
-                <thead>
-                    <tr>
-                        <th>ISBN</th>
-                        <th>Nome</th>
-                        <th>Ano de lançamento</th>
-                        <th>Autor</th>
-                        <th>Editora</th>
-                        <th>Genero</th>
-                    </tr>
-                    </thead>
-                    
+                <thead><tr>
+                    <th>Id da Reserva:</th>
+                    <th>Nome do Usuario:</th>
+                    <th>Id do exemplar:</th>
+                    <th>Nome do exemplar:</th>
+                    <th>Data de reserva:</th>
+                    <th>Data limite:</th>
+                    <th>Data de Entrega:</th>
+                </tr></thead>
                 <tbody>
                     <% table.forEach((row) => { %>
                         <tr>
-                            <td><%= row.isbn %></td>
+                            <td><%= row.id %></td>
+                            <td><%= row.email %></td>
+                            <td><%= row.idexemplar %></td>
                             <td><%= row.nome %></td>
-                            <td><%= row.ano %></td>
-                            <td><%= row.autor %></td>
-                            <td><%= row.nomeEditora %></td>
-                            <td><%= row.genero %></td>
+                            <td><%= row.dataemprestimo %></td>
+                            <td><%= row.dataesperada %></td>
+                            <td><%= row.datareal %></td>
+                            <td>
+                                <a href="http://localhost:3000/reserva/delete/<%= row.id %>">Deletar reserva</a>
+                            </td>
                         </tr>
                     <% }); %>
-                    <tr>
-                        <td colspan="3">
-                            <a href="http://localhost:3000/livro/TelaCadastroLivro/">Cadastrar livro</a>
-                        </td>
-                        <td colspan="3">
-                            <a href="http://localhost:3000/livro/TelaAlteracaoLivro/">Atualizar livro</a>
-                        </td>
-                    </tr>
-                    
                 </tbody>
             </table>
         </div>
-
     </body>
 </html>

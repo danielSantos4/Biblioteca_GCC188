@@ -7,7 +7,7 @@ function conectar() {
 
     const pool = new pg.Pool({
         host: 'localhost',
-        database: 'postgres',
+        database: 'test',
         user: 'postgres',
         password: '123456',
         port: '5432'
