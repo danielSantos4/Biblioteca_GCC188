@@ -14,7 +14,7 @@ async function get_exemplar(req, res){
     }
     else
     {
-        res.send(await exemplar_service.get_exemplar(isbn))
+        res.send(await exemplar_service.get_exemplar(id))
     }
 }
 async function create_exemplar(req, res){
