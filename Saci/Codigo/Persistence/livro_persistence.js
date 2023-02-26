@@ -25,6 +25,7 @@ async function get_livro(isbn)
 
     try{
         const consulta = await conn.query('SELECT * FROM livro WHERE isbn=$1', [isbn])
+        console.log("getlivro")
         console.log(consulta.rows)
         return consulta.rows
     }
@@ -57,12 +58,13 @@ async function create_livro(isbn, nome, ano, genero, autor, idEditora)
     }
 }
 
-async function upt_livro(nome, senha, dataNasc, email)
+async function upt_livro(isbn, nome, ano, genero, autor, idEditora)
 {
     const conn = await bd.conectar()
 
     try{
-        const consulta =   await conn.query('UPDATE "usuario" SET nome = $1, senha = $2, data_nascimento = $3  WHERE email = $4 RETURNING *', [nome, senha, dataNasc, email])
+        console.log("aqui persistence uptlivro")
+        const consulta =   await conn.query('UPDATE "livro" SET nome = $2, ano = $3, ideditora = $4, genero = $5, autor = $6 WHERE isbn=$1 RETURNING *', [isbn, nome, ano, idEditora, genero, autor])
         console.log(consulta.rows)
         return consulta.rows
     }

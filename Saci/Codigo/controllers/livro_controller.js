@@ -34,15 +34,18 @@ async function create_livro(req, res){
 }
 async function upt_livro(req, res){
     
-    const cpf = req.body.cpf;
+    const isbn = req.body.isbn;
     const nome = req.body.nome;
-    const salario = parseFloat(req.body.salario);
-    const alterarCpf = req.params.cpf;
-    
-    if(!cpf || !nome || !salario){
-        res.send("CPF, nome ou salário invalidos!!!")
+    const ano = req.body.ano;
+    const genero = req.body.genero;
+    const autor = req.body.autor;
+    const idEditora = req.body.ideditora;
+
+    if(!isbn || !nome || !ano || !genero || !autor || !idEditora){
+        res.send("Dados invalidos!!!")
     }else{
-        res.send(await livro_service.updateClient(alterarCpf, cpf, nome, salario)) 
+        await livro_service.upt_livro(isbn, nome, ano, genero, autor, idEditora)
+        res.redirect('/livro')
     }
 }
 

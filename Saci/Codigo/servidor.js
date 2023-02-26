@@ -20,10 +20,7 @@ servidor.use("/livro", livroRouter)
 servidor.get("/", function(req,res) {
     res.sendFile(path.join(__dirname, "/views/TelaLogin.html"))
 })
-servidor.get("/livro/TelaCadastroLivro/", function(req,res) {
-    console.log(__dirname)
-    res.sendFile(path.join(__dirname, fileName))
-})
+
 function servico(){
     console.log("Servidor rodando ... \n")
 }

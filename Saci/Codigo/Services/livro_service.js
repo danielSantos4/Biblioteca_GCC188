@@ -15,13 +15,13 @@ async function create_livro(isbn, nome, ano, genero, autor, idEditora){
     }
 }
 
-async function upt_livro(alterarCpf, cpf, nome, salario){
-    const cliente = await getClient(alterarCpf)
+async function upt_livro(isbn, nome, ano, genero, autor, idEditora){
+    const livro = await get_livro(isbn)
 
-    if(cliente.length > 0){
-        return await livro_persistence.updateClient(alterarCpf, cpf, nome, salario)
+    if(livro.length != 0){
+        return await livro_persistence.upt_livro(isbn, nome, ano, genero, autor, idEditora)
     }else{
-        return "Cliente não cadastrado"
+        return "Não foi encontrado um livro com esse ISBN"
     }
 }
 
