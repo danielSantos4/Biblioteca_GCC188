@@ -5,7 +5,7 @@ async function get_all_users()
 
     try{
         //const consulta = await conn.query('SELECT * FROM "usuario"')
-        const consulta = await conn.query("SELECT nome, email, to_char(data_nascimento::date, 'dd/mm/yyyy') as data_nascimento FROM usuario")
+        const consulta = await conn.query("SELECT nome, email, to_char(data_nascimento::date, 'dd/mm/yyyy') as data_nascimento FROM usuario WHERE adm_user = false")
         console.log("Get all users !!! ")
         console.log(consulta)
         return consulta.rows

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>Cadastro livro</title>
+    </head>
+    <!--css externo nao esta funcionando-->
+    <style type="text/css">
+        .mensagemAtencao {
+            color: red;
+            font-size: 20px;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <body>
+        <nav>
+            <ul class="navbar">
+                <li><a href="http://localhost:3000/user/">Crud usuário</a></li>
+                <li><a href="http://localhost:3000/livro/">Livros</a></li>
+                <li><a href="http://localhost:3000/exemplar">Contact</a></li>
+                <li><a href="about.asp">About</a></li>
+              </ul>
+        </nav>
+
+        <div>
+            <h2>Formulário de cadastro de exemplar</h2>
+
+            <form action="http://localhost:3000/exemplar" method="post">        
+                <label for="isbn">ISBN:</label><br>
+                <input type="text" id="isbn" name="isbn" required><br>
+        
+                <input type="submit" value="Cadastrar exemplar">
+            </form>
+        </div>
+
+
+    </body>
+</html>
