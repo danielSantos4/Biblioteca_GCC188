@@ -24,42 +24,33 @@
             <ul class="navbar">
                 <li><a href="http://localhost:3000/user/">Crud usuário</a></li>
                 <li><a href="http://localhost:3000/livro/">Livros</a></li>
-                <li><a href="http://localhost:3000/exemplar/">Exemplares</a></li>
+                <li><a href="http://localhost:3000/exemplar">Exemplares</a></li>
                 <li><a href="http://localhost:3000/editora">Editoras</a></li>
               </ul>
         </nav>
 
         <div class="">
-            <h2>Tabela de todos os livros</h2>
+            <h2>Tabela de todas editoras</h2>
             <table border="1">
                 <thead>
                     <tr>
-                        <th>ISBN</th>
-                        <th>Nome</th>
-                        <th>Ano de lançamento</th>
-                        <th>Autor</th>
-                        <th>Editora</th>
-                        <th>Genero</th>
+                        <th>ID Editora</th>
+                        <th>Nome editora</th>
+                        <th>Cidade sede</th>
                     </tr>
                     </thead>
                     
                 <tbody>
                     <% table.forEach((row) => { %>
                         <tr>
-                            <td><%= row.isbn %></td>
-                            <td><%= row.nome %></td>
-                            <td><%= row.ano %></td>
-                            <td><%= row.autor %></td>
+                            <td><%= row.ideditora %></td>
                             <td><%= row.nomeEditora %></td>
-                            <td><%= row.genero %></td>
+                            <td><%= row.cidadeSede %></td>
                         </tr>
                     <% }); %>
                     <tr>
-                        <td colspan="3">
-                            <a href="http://localhost:3000/livro/TelaCadastroLivro/">Cadastrar livro</a>
-                        </td>
-                        <td colspan="3">
-                            <a href="http://localhost:3000/livro/TelaAlteracaoLivro/">Atualizar livro</a>
+                        <td colspan="4">
+                            <a href="http://localhost:3000/editora/TelaCadastroEditora/">Cadastrar editora</a>
                         </td>
                     </tr>
                     

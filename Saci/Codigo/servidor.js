@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import userRouter from "./Routes/user_routes.js"
 import livroRouter from "./Routes/livro_router.js"
 import exemplarRouter from "./Routes/exemplar_router.js"
+import editoraRouter from "./Routes/editora_router.js"
 const servidor = express()
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +20,8 @@ servidor.use(express.urlencoded( {extended: true} ))
 servidor.use("/user", userRouter)
 servidor.use("/livro", livroRouter)
 servidor.use("/exemplar", exemplarRouter)
+servidor.use("/editora", editoraRouter)
+
 servidor.get("/", function(req,res) {
     res.sendFile(path.join(__dirname, "/views/TelaLogin.html"))
 })

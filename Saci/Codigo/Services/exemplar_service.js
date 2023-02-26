@@ -6,9 +6,9 @@ async function get_all_exemplar(){
 async function create_exemplar(isbn){    
     return await exemplar_persistence.create_exemplar(isbn);
 }
-async function get_exemplar(isbn){    
+async function get_exemplar(id){    
 
-    return await exemplar_persistence.get_exemplar(isbn);
+    return await exemplar_persistence.get_exemplar(id);
 }
 
 async function del_exemplar(id){    
