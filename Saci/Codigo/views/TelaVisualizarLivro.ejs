@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>CRUD Usuário</title>
+    </head>
+    <!--css externo nao esta funcionando-->
+    <style type="text/css">
+        .mensagemAtencao {
+            color: red;
+            font-size: 20px;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <body>
+        <nav>
+            <ul class="navbar">
+                <li><a href="http://localhost:3000/user/">Crud usuário</a></li>
+                <li><a href="http://localhost:3000/livro/">Livros</a></li>
+                <li><a href="contact.asp">Contact</a></li>
+                <li><a href="about.asp">About</a></li>
+              </ul>
+        </nav>
+
+        <div class="">
+            <h2>Tabela de todos os livros</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Nome</th>
+                        <th>Ano de lançamento</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>Genero</th>
+                    </tr>
+                    </thead>
+                    
+                <tbody>
+                    <% table.forEach((row) => { %>
+                        <tr>
+                            <td><%= row.isbn %></td>
+                            <td><%= row.nome %></td>
+                            <td><%= row.ano %></td>
+                            <td><%= row.autor %></td>
+                            <td><%= row.nomeEditora %></td>
+                            <td><%= row.genero %></td>
+                        </tr>
+                    <% }); %>
+                    <tr>
+                        <td colspan="3">
+                            <a href="http://localhost:3000/livro/TelaCadastroLivro/">Cadastrar livro</a>
+                        </td>
+                        <td colspan="3">
+                            <a href="./TelaUpdateLivro.html">Atualizar livro</a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>

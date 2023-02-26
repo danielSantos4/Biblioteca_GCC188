@@ -1,5 +1,3 @@
-import pg from "pg"
-import user_persistence from "../Persistence/user_persistence.js"
 import persistence from "../Persistence/user_persistence.js"
 
 async function get_all_users()
@@ -57,7 +55,8 @@ async function upt_user(nome, senha, dataNasc, email)
 }
 
 async function login_user(email, senha) {
-    const user = await user_persistence.login_user(email,senha)
+    //alterado antes estava user_persistence
+    const user = await persistence.login_user(email,senha)
     if(user[0] != undefined){
         const ehUmAdm = user[0].adm_user
         console.log("aqui:" + ehUmAdm)

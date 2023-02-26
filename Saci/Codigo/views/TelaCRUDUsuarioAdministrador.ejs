@@ -13,8 +13,22 @@
             color: red;
             font-size: 20px;
         }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
     </style>
     <body>
+        <nav>
+            <ul class="navbar">
+                <li><a href="http://localhost:3000/user/">Crud usuário</a></li>
+                <li><a href="http://localhost:3000/livro">Livros</a></li>
+                <li><a href="contact.asp">Contact</a></li>
+                <li><a href="about.asp">About</a></li>
+              </ul>
+        </nav>
         <div class="mensagemAtencao">
             <% if(mensagem != ''){%>
                 <div >
