@@ -32,11 +32,12 @@ async function get_all_reservas() {
     }
 }
 
-async function create_reserva(email, exemplar, dataemprestimo, dataesperada, datareal) {
-    const conn = bd.conectar()
+async function create_reserva(iduser, idexemplar, dataemprestimo, dataesperada) {
+    const conn = await bd.conectar()
+    console.log(iduser + '\n' + idexemplar + '\n' + dataemprestimo + '\n' + dataesperada)
 
     try {
-        const consulta = conn.query('INSERT INTO reserva VALUES($1, $2, $3, $4, $5, DEFAULT) RETURNING *', [email, exemplar, dataemprestimo, dataesperada, datareal])
+        const consulta = await conn.query('INSERT INTO reserva VALUES($1, $2, $3, $4, null, DEFAULT) RETURNING *', [iduser, idexemplar, dataemprestimo, dataesperada])
         console.log(consulta)
         return consulta.rows
     }

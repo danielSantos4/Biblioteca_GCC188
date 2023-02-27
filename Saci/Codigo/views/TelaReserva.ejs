@@ -24,11 +24,11 @@
     <body>
         <nav>
             <ul class="navbar">
-                <li><a href="http://localhost:3000/user/">Crud usuário</a></li>
-                <li><a href="http://localhost:3000/livro/">Livros</a></li>
-                <li><a href="http://localhost:3000/exemplar">Exemplar</a></li>
-                <li><a href="http://localhost:3000/editora">Editoras</a></li>
-                <li><a href="http://localhost:3000/reserva">Reservas</a></li>
+                <li><a href="http://localhost:3000/user/"><button>Crud usuário</button></a></li>
+                <li><a href="http://localhost:3000/livro/"><button>Livros</button></a></li>
+                <li><a href="http://localhost:3000/exemplar"><button>Exemplar</button></a></li>
+                <li><a href="http://localhost:3000/editora"><button>Editoras</button></a></li>
+                <li><a href="http://localhost:3000/reserva"><button>Reservas</button></a></li>
               </ul>
         </nav>
 
@@ -55,12 +55,20 @@
                             <td><%= row.dataesperada %></td>
                             <td><%= row.datareal %></td>
                             <td>
-                                <a href="http://localhost:3000/reserva/delete/<%= row.id %>">Deletar reserva</a>
+                                <a href="http://localhost:3000/reserva/delete/<%= row.id %>">
+                                    <button>Deletar<br>reserva</button></a>
+                            </td>
+                            <td>
+                                <a href="http://localhost:3000/reserva/update">
+                                    <button>Atualizar<br> dados </button></a>
                             </td>
                         </tr>
                     <% }); %>
                 </tbody>
-            </table>
+            </table><br>
         </div>
+        <form action="http://localhost:3000/reserva/createPage">
+            <button>Cadastrar reserva</button>
+        </form>
     </body>
 </html>

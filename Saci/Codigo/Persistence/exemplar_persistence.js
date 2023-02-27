@@ -77,4 +77,19 @@ async function del_exemplar(id)
     }
 }
 
-export default {get_all_exemplar, create_exemplar, get_exemplar, del_exemplar}
+async function get_exemplare_disponivel(isbn) {
+    var conn = await bd.conectar()
+
+    try {
+        var disponiveis = await conn.query("SELECT id FROM exemplar WHERE isbn = $1 AND emprestado = false", [isbn])
+        return disponiveis.rows[0].id
+    }
+    catch(err) {
+        console.log(err)
+    }
+    finally {
+        conn.release()
+    }
+}
+
+export default {get_all_exemplar, create_exemplar, get_exemplar, del_exemplar, get_exemplare_disponivel}

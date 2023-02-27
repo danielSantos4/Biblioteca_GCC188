@@ -8,20 +8,21 @@ async function get_all_reservas(req, res) {
 
 async function create_reserva(req, res) {
     const email = req.body.email
-    const exemplar = req.body.idexemplar
+    const nomeLivro = req.body.nomeLivro
     const dataemprestimo = req.body.dataemprestimo
     const dataesperada = req.body.dataesperada
-    const datareal = req.body.datareal
-    if(!email || !exemplar || !dataemprestimo || !dataesperada) {
-        res.send("Dados invalidos!!")
+
+    if(!email || !nomeLivro || !dataemprestimo || !dataesperada) {
+        res.render('TelaCadastroReserva')
     }
     else {
-        const consulta = await reserva_service.create_reserva(email, exemplar, dataemprestimo, dataesperada, datareal)
+        var consulta = await reserva_service.create_reserva(email, nomeLivro, dataemprestimo, dataesperada)
         if(consulta == false) {
-            console.log('Erro!! Usuario em posse de exemplares com o título a ser emprestado')
+            res.render('TelaCadastroReserva')
         }
         else {
-            console.log("feito")
+            console.log('Create reserva realizado !!!')
+            res.redirect('/reserva/')
         }
     }
 }

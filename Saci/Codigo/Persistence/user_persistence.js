@@ -23,9 +23,10 @@ async function get_all_users()
 async function get_user(email)
 {
     const conn = await bd.conectar()
+    console.log("getUser !!!")
 
     try{
-        const consulta = await conn.query('SELECT * FROM "usuario" WHERE email=$1', [email])
+        const consulta = await conn.query('SELECT * FROM usuario WHERE email=$1', [email])
         console.log(consulta.rows)
         return consulta.rows
     }

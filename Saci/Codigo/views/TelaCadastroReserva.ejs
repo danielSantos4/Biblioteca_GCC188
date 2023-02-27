@@ -32,16 +32,17 @@
         </nav>
 
         <div>
-            <h2>Formulário de cadastro de exemplar</h2>
-
-            <form action="http://localhost:3000/exemplar" method="post">        
-                <label for="isbn">ISBN:</label><br>
-                <input type="text" id="isbn" name="isbn" required><br>
-        
-                <input type="submit" value="Cadastrar exemplar">
+            <form action="http://localhost:3000/reserva" method="POST">
+                <label>Email do usuario:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <label>Nome do livro</label><br>
+                <input type="text" id="nomeLivro" name="nomeLivro"><br><br>
+                <label>Data do Emprestimo</label><br>
+                <input type="date" id="dataemprestimo" name="dataemprestimo"><br><br>
+                <label>Data para Devolucao</label><br>
+                <input type="date" id="dataesperada" name="dataesperada"><br><br>
+                <input type="submit" value="Cadastrar Reserva">
             </form>
         </div>
-
-
     </body>
 </html>

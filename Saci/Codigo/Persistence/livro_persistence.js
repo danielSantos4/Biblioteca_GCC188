@@ -78,4 +78,19 @@ async function upt_livro(isbn, nome, ano, genero, autor, idEditora)
     }
 }
 
-export default {get_all_livros, create_livro, upt_livro, get_livro}
+async function get_livro_isbn(nomeLivro) {
+    var conn = await bd.conectar()
+
+    try {
+        var consulta = await conn.query('SELECT isbn FROM livro WHERE nome = $1', [nomeLivro])
+        return consulta.rows[0].isbn
+    }
+    catch(err) {
+        console.log(err)
+    }
+    finally {
+        conn.release()
+    }
+}
+
+export default {get_all_livros, create_livro, upt_livro, get_livro, get_livro_isbn}
