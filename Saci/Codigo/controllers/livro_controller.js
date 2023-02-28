@@ -29,7 +29,7 @@ async function create_livro(req, res){
             res.send("Dados invalidos!!!")
         }else{
             let create = await livro_service.create_livro(isbn, nome, ano, genero, autor, idEditora)
-            if(typeof(create == String))
+            if(typeof(create) == "string")
             {
                 res.send("<script>alert('" + create + "'); window.history.back();</script> ")
             }

@@ -8,7 +8,7 @@ async function get_livro(isbn){
 }
 async function create_livro(isbn, nome, ano, genero, autor, idEditora){
     const livro = await get_livro(isbn)
-    if(livro.length == 0){
+    if(livro[0] == undefined){
         return await livro_persistence.create_livro(isbn, nome, ano, genero, autor, idEditora)
     }else{
         return "Já existe livro com esse isbn"
