@@ -32,19 +32,22 @@ async function create_user(req, res)
 
     if(!email|| !nome || !dataNasc || !senha || (senha != senhaConfirmacao))
     {
-        var row = await services.get_all_users()
-        res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Dados inválidos'})
+        //var row = await services.get_all_users()
+        //res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Dados inválidos'})
+        return false
     }
     else
     {
         const contaExistente = await services.create_user(nome, senha, dataNasc, email)
-        var row = await services.get_all_users()
+        //var row = await services.get_all_users()
         console.log("log;", contaExistente)
         
         if(contaExistente != false){
-            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Cadastro feito com sucesso'})
+            //res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Cadastro feito com sucesso'})
+            return contaExistente
         }else{
-            res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Já existe uma conta com esse email'})
+            //res.render('TelaCRUDUsuarioAdministrador', {table: row, mensagem: 'Já existe uma conta com esse email'})
+            return false
             //res.send("Conta conta de email " + email + " já existe")
         }
         //console.log(services.create_user(nome, senha, dataNasc, email))
@@ -120,4 +123,27 @@ async function login_user(req, res) {
 async function telaCadastrar(req,res) {
     res.render("TelaCadastro")
 }
-export default {get_all_users, get_user, del_user, upt_user, create_user, login_user, telaCadastrar}
+
+async function create_telacadastro(req, res) {
+    var create = create_user(req, res)
+
+    if(create != false) {
+        res.render("TelaLogin")
+    }
+    else {
+        res.render("TelaCadastro")
+    }
+}
+
+async function create_telaCRUD(req, res) {
+    var create = create_user(req, res)
+    var users = services.get_all_users()
+
+    if(create != false) { 
+        res.render("TelaCRUDUsuarioAdministrador", {table: users , mensagem: 'Usuario cadastrado com sucesso'})
+    }
+    else {
+        res.render("TelaCRUDUsuarioAdministrador", {table: users , mensagem: 'Dados inválidos ou conta com esse email ja existente'})
+    }
+}
+export default {get_all_users, get_user, del_user, upt_user, create_telaCRUD, create_telacadastro, login_user, telaCadastrar}

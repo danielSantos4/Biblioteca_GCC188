@@ -1,6 +1,7 @@
 import express from "express"
 import path from "path"
 import { fileURLToPath } from 'url';
+
 import userRouter from "./Routes/user_routes.js"
 import livroRouter from "./Routes/livro_router.js"
 import exemplarRouter from "./Routes/exemplar_router.js"

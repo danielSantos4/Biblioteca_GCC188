@@ -92,4 +92,63 @@ async function get_exemplare_disponivel(isbn) {
     }
 }
 
-export default {get_all_exemplar, create_exemplar, get_exemplar, del_exemplar, get_exemplare_disponivel}
+async function get_novo_exemplar(id) {
+    var conn = await bd.conectar()
+
+    try {
+        var isbn = await conn.query("SELECT isbn FROM exemplar WHERE id = $1", [id])
+        return await get_exemplare_disponivel(isbn.rows[0].isbn)
+    }
+    catch(err) {
+        console.log(err)
+    }
+    finally {
+        conn.release()
+    }
+}
+
+async function atualiza_exemplar_emprestado(id, true_or_false) {
+    var conn = await bd.conectar()
+
+    try {
+        if(true_or_false)
+            await conn.query("UPDATE exemplar SET emprestado = true WHERE id = $1", [id])
+        else
+            await conn.query("UPDATE exemplar SET emprestado = false WHERE id = $1", [id])
+    }
+    catch(err) {
+        console.log(err)
+    }
+    finally {false
+        conn.release()
+    }
+}
+
+async function confere_exemplar(id) {
+    var conn = await bd.conectar()
+
+    try {
+        var conf = await conn.query("SELECT emprestado FROM exemplar WHERE id = $1", [id])
+        if(conf.rows[0].emprestado == false) {
+            return true
+        }
+        return false
+    }
+    catch(err) {
+        console.log(err)
+    }
+    finally {
+        conn.release()
+    }
+}
+
+
+
+export default {get_all_exemplar, 
+    create_exemplar, 
+    get_exemplar, 
+    del_exemplar, 
+    get_exemplare_disponivel, 
+    atualiza_exemplar_emprestado, 
+    confere_exemplar,
+    get_novo_exemplar}

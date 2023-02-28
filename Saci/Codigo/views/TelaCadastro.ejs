@@ -9,21 +9,21 @@
 <body>
     <div>
         <h1>Cadastro de usuário</h1>
-        <form action="http://localhost:3000/user" method="post">
+        <form action="http://localhost:3000/user/create_telacadastro" method="post">
             <label for="nome">Nome de usuário:</label><br>
-            <input type="text" id="nome" name="nome"><br>
+            <input type="text" id="nome" name="nome" required><br>
     
             <label for="dataNascimento">Data de nascimento:</label><br>
-            <input type="text" id="dataNascimento" name="dataNascimento"><br>
+            <input type="text" id="dataNascimento" name="dataNascimento" required><br>
     
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
+            <input type="text" id="email" name="email" required><br>
     
             <label for="senha">Senha:</label><br>
-            <input type="text" id="senha" name="senha"><br>
+            <input type="text" id="senha" name="senha" required><br>
             
             <label for="senhaConfirmacao">Confirmar senha:</label><br>
-            <input type="text" id="senhaConfirmacao" name="senhaConfirmacao"><br><br>
+            <input type="text" id="senhaConfirmacao" name="senhaConfirmacao" required><br><br>
     
             <input type="submit" value="Realizar cadastro">
     
