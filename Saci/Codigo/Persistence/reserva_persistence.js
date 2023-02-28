@@ -35,7 +35,6 @@ async function get_all_reservas() {
 
 async function create_reserva(iduser, idexemplar, dataemprestimo, dataesperada) {
     const conn = await bd.conectar()
-    console.log(iduser + '\n' + idexemplar + '\n' + dataemprestimo + '\n' + dataesperada)
 
     try {
         const consulta = await conn.query('INSERT INTO reserva VALUES($1, $2, $3, $4, null, DEFAULT) RETURNING *', [iduser, idexemplar, dataemprestimo, dataesperada])

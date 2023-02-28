@@ -1,9 +1,14 @@
 import exemplar_persistence from "../Persistence/exemplar_persistence.js"
+import livro_persistence from "../Persistence/livro_persistence.js";
 async function get_all_exemplar(){    
     return await exemplar_persistence.get_all_exemplar();
 }
 
 async function create_exemplar(isbn){    
+    let consulta = await livro_persistence.get_livro(isbn)
+    if(consulta[0] == undefined) {
+        return false
+    }
     return await exemplar_persistence.create_exemplar(isbn);
 }
 async function get_exemplar(id){    

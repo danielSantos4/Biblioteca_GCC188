@@ -23,8 +23,13 @@ async function create_exemplar(req, res){
         if(!isbn){
             res.send("Dados invalidos!!!")
         }else{
-            await exemplar_service.create_exemplar(isbn)
-            res.redirect('/exemplar')
+            let create = await exemplar_service.create_exemplar(isbn)
+            if(!create) {
+                res.send("<script>alert('ISBN nao cadastrado'); window.history.back();</script> ")
+            }
+            else{
+                res.redirect('/exemplar')
+            }
         }
 }
 

@@ -146,4 +146,9 @@ async function create_telaCRUD(req, res) {
         res.render("TelaCRUDUsuarioAdministrador", {table: users , mensagem: 'Dados inválidos ou conta com esse email ja existente'})
     }
 }
+
+function teste(a){
+    return a
+}
+
 export default {get_all_users, get_user, del_user, upt_user, create_telaCRUD, create_telacadastro, login_user, telaCadastrar}

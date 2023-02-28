@@ -28,8 +28,14 @@ async function create_livro(req, res){
         if(!isbn || !nome || !ano || !genero || !autor || !idEditora){
             res.send("Dados invalidos!!!")
         }else{
-            await livro_service.create_livro(isbn, nome, ano, genero, autor, idEditora)
-            res.redirect('/livro')
+            let create = await livro_service.create_livro(isbn, nome, ano, genero, autor, idEditora)
+            if(typeof(create == String))
+            {
+                res.send("<script>alert('" + create + "'); window.history.back();</script> ")
+            }
+            else{
+                res.redirect('/livro')
+            }
         }
 }
 async function upt_livro(req, res){
