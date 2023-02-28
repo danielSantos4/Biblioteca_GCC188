@@ -69,4 +69,5 @@ async function login_user(email, senha) {
         return false
     }
 }
+
 export default {get_all_users, get_user, del_user, upt_user, create_user, login_user}

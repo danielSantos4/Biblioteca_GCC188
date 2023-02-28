@@ -151,4 +151,4 @@ function teste(a){
     return a
 }
 
-export default {get_all_users, get_user, del_user, upt_user, create_telaCRUD, create_telacadastro, login_user, telaCadastrar}
+export default {get_all_users, get_user, del_user, upt_user, create_telaCRUD, create_telacadastro, login_user, telaCadastrar, teste}
