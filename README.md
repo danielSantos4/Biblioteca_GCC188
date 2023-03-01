@@ -33,6 +33,8 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
         - routes
         - services
         - views
+      - Diagramas
+      - Testes
 
 
 ## Tecnologias
@@ -43,9 +45,9 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 - Postgres v15.0
 
 
-## Regras de uso do git
+# Regras de uso do git
 
-### Regras de commit
+## Regras de commit
 - Deve ser feito um commit ao fim de cada passo do trabalho.
 - Cada commit deve possuir uma mensagem clara, que especifique o que foi realizado.
 
@@ -53,7 +55,7 @@ Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elabor
 - Quando o desenvolvedor necessitar fazer um commit antes de terminar um passo, ele deve criar uma branch e fazer todos os commits necessários nela.
 - Ao terminar um passo, deve ser realizado um merge entre a branch main e outras branches, se essas existirem.
 
-## Boas práticas de codificação que devem ser utilizadas
+# Boas práticas de codificação que devem ser utilizadas
 - As variáveis devem seguir o estilo de notação camelCase.
 - Os comentários devem ser escritos com o objetivo de explicar um determinado bloco de código, devendo ser escritos imediatamente antes do código a ser explicado.
 - Deve-se utilizar espaçamento em torno dos operadores lógicos e operadores relacionais.
