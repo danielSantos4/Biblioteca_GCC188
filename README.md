@@ -11,11 +11,11 @@ Na cidade de `Campo Azul, Paraná`a biblioteca `Alexandria` usa um sistema de re
 Com isso, essa biblioteca decidiu contratar a empresa `The Builders` para elaborar um sistema para automatizar a coleta e a gerência desses dados, facilitando a vida do administrador da biblioteca.
 
 ### Funcionalidades
-    - Os usuários devem ser capazes de se cadastrarem por conta própria no sistema.
-    - Os administradores devem ser capazes de cadastrar, visualizar, excluir e alterar uma reserva de um livro por um usuário.
-    - Os administradores devem ser capazes de cadastrar, alterar e visualizar livros cadastrados.
-    - Os usuários devem ser capazes de visualizar os livros cadastrados.
-    - Os usuários devem ser capazes de cadastrar reservas.
+    - Os administradores devem ser capazes de cadastrar, visualizar, excluir e alterar uma reserva de um exemplar por um usuário.
+    - Os administradores devem ser capazes de cadastrar, alterar e visualizar livros.
+    - Os administradores devem ser capazes de visualizar, cadastrar e excluir exemplares.
+    - Os administradores devem ser capazes de visualizar, cadastrar, alterar e excluir usuarios.
+    - Os administradores devem ser capazes de cadastrar e visualizar editoras.
     
 ### Usuários
     - Usuários
